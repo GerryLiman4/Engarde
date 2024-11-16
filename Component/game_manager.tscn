@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://yqhdkwqrvald"]
+[gd_scene load_steps=19 format=3 uid="uid://yqhdkwqrvald"]
 
 [ext_resource type="Script" path="res://Script/game_manager.gd" id="1_s4fe7"]
 [ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="2_ryquo"]
@@ -17,7 +17,13 @@
 [ext_resource type="Resource" uid="uid://ddpwj65f360fv" path="res://Resource/CardConfiguration/sheperd_configuration.tres" id="15_fcvhn"]
 [ext_resource type="Resource" uid="uid://d4krf8cd4x3pr" path="res://Resource/CardConfiguration/snake_configuration.tres" id="16_f2vaj"]
 [ext_resource type="Resource" uid="uid://jwdveqmsgucs" path="res://Resource/CardConfiguration/sonic_configuration.tres" id="17_wkr0j"]
+[ext_resource type="AudioStream" uid="uid://6hexv65p0rm1" path="res://Assets/Sounds/bgm-blues-guitar-loop-192099.mp3" id="18_dg8po"]
 
-[node name="GameManager" type="Node"]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("bgm_stream_player")]
 script = ExtResource("1_s4fe7")
 card_configuration_list = Array[ExtResource("2_ryquo")]([ExtResource("3_hmioy"), ExtResource("4_yd4f6"), ExtResource("5_y72a0"), ExtResource("6_g5yg2"), ExtResource("7_yktom"), ExtResource("8_15042"), ExtResource("9_mg1sa"), ExtResource("10_od3fw"), ExtResource("11_ptm6j"), ExtResource("12_7hbtp"), ExtResource("13_fodrm"), ExtResource("14_gmr1r"), ExtResource("15_fcvhn"), ExtResource("16_f2vaj"), ExtResource("17_wkr0j")])
+bgm_stream_player = NodePath("BGMStreamPlayer")
+
+[node name="BGMStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_dg8po")
+bus = &"BGM"

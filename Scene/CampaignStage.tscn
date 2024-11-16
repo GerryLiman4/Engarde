@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0fht0llmklwk"]
+
+[ext_resource type="Script" path="res://Scene/campaign_stage.gd" id="1_16v5v"]
+[ext_resource type="PackedScene" uid="uid://int4b1ukuhhm" path="res://Component/UI/Button/general_button.tscn" id="1_85b4n"]
+[ext_resource type="Script" path="res://Component/InGame/deck_object.gd" id="2_p5jo5"]
+[ext_resource type="PackedScene" uid="uid://b45kydivjf3er" path="res://Component/UI/EditDeckPopup/edit_deck_popup_menu.tscn" id="3_erbk5"]
+[ext_resource type="PackedScene" uid="uid://cd8w0f5gqxvfu" path="res://Component/InGame/card_object.tscn" id="3_rc5jh"]
+[ext_resource type="AudioStream" uid="uid://ymp2gm7285rd" path="res://Assets/Sounds/blip-131856.mp3" id="5_use4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7ecs"]
+size = Vector2(150, 200)
+
+[node name="CampaignStage" type="Node2D" node_paths=PackedStringArray("deck_object", "discarded_root", "main_canvas", "camera", "edit_popup")]
+script = ExtResource("1_16v5v")
+deck_object = NodePath("Arena/DeckRoot")
+discarded_root = NodePath("Arena/DiscardedOnesRoot")
+main_canvas = NodePath("MainUI")
+camera = NodePath("Camera2D")
+edit_popup = NodePath("MainUI/EditDeckPopupMenu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="MainUI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="MainUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Control" parent="MainUI/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ExitButton" parent="MainUI/MarginContainer/Panel" instance=ExtResource("1_85b4n")]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -31.0
+offset_right = 74.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+text = "Exit"
+
+[node name="EditDeckPopupMenu" parent="MainUI" instance=ExtResource("3_erbk5")]
+visible = false
+
+[node name="Arena" type="Node2D" parent="."]
+
+[node name="DeckRoot" type="Node2D" parent="Arena" node_paths=PackedStringArray("audio_stream_player")]
+position = Vector2(400, 150)
+script = ExtResource("2_p5jo5")
+card_object_prefab = ExtResource("3_rc5jh")
+audio_stream_player = NodePath("AudioStreamPlayer")
+
+[node name="CardObject" parent="Arena/DeckRoot" instance=ExtResource("3_rc5jh")]
+visible = false
+
+[node name="Hitbox" type="Area2D" parent="Arena/DeckRoot"]
+collision_layer = 536870912
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/DeckRoot/Hitbox"]
+shape = SubResource("RectangleShape2D_r7ecs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Arena/DeckRoot"]
+stream = ExtResource("5_use4n")
+bus = &"SFX"
+
+[node name="DiscardedOnesRoot" type="Node2D" parent="Arena"]
+position = Vector2(400, -100)
+
+[connection signal="pressed" from="MainUI/MarginContainer/Panel/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="selected" from="Arena/DeckRoot" to="." method="_on_deck_root_selected"]
+[connection signal="input_event" from="Arena/DeckRoot/Hitbox" to="Arena/DeckRoot" method="_on_hitbox_input_event"]
+[connection signal="mouse_entered" from="Arena/DeckRoot/Hitbox" to="Arena/DeckRoot" method="_on_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Arena/DeckRoot/Hitbox" to="Arena/DeckRoot" method="_on_hitbox_mouse_exited"]

@@ -1,8 +1,10 @@
-extends Control
+extends CanvasLayer
 
 class_name GeneralPopupMenu
 
 @export var audio_stream_player : AudioStreamPlayer
+
+signal exit_popup()
 
 func open_popup():
 	audio_stream_player.play()

@@ -52,7 +52,7 @@ size_flags_vertical = 3
 
 [node name="ExitButton" parent="MainUI/UIPanel" instance=ExtResource("1_oyb88")]
 layout_mode = 2
-text = " Store "
+text = " Exit "
 
 [node name="Spacer3" type="Control" parent="MainUI/UIPanel"]
 custom_minimum_size = Vector2(0, 15)
