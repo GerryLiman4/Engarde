@@ -46,10 +46,6 @@ text = " Start Campaign"
 layout_mode = 2
 text = "Edit Deck "
 
-[node name="StoreButton" parent="MainUI/UIPanel" instance=ExtResource("1_oyb88")]
-layout_mode = 2
-text = " Store "
-
 [node name="Spacer" type="Control" parent="MainUI/UIPanel"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -64,5 +60,4 @@ layout_mode = 2
 
 [connection signal="pressed" from="MainUI/UIPanel/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainUI/UIPanel/EditButton" to="." method="_on_edit_button_pressed"]
-[connection signal="pressed" from="MainUI/UIPanel/StoreButton" to="." method="_on_store_button_pressed"]
 [connection signal="pressed" from="MainUI/UIPanel/ExitButton" to="." method="_on_exit_button_pressed"]

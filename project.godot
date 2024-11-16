@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Component/game_manager.tscn"
+SignalManager="*res://Script/signal_manager.gd"
+NotificationManager="*res://Component/notification_manager.tscn"
 
 [input]
 

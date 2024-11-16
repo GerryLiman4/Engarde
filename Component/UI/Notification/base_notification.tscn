@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://be6ihuhthcc27"]
+
+[ext_resource type="Script" path="res://Component/UI/Notification/base_notification.gd" id="1_r6jhg"]
+[ext_resource type="PackedScene" uid="uid://int4b1ukuhhm" path="res://Component/UI/Button/general_button.tscn" id="2_r4pkv"]
+
+[node name="BaseNotification" type="CanvasLayer" node_paths=PackedStringArray("notification_label")]
+layer = 80
+script = ExtResource("1_r6jhg")
+notification_label = NodePath("Background/NotificationPanel/Label")
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NotificationPanel" type="Panel" parent="Background"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/NotificationPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -38.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NOTIFICATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ConfirmButton" parent="Background/NotificationPanel" instance=ExtResource("2_r4pkv")]
+layout_mode = 1
+offset_top = 45.0
+offset_bottom = 85.0
+text = "OK"
+
+[connection signal="pressed" from="Background/NotificationPanel/ConfirmButton" to="." method="_on_confirm_button_pressed"]

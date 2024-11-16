@@ -49,8 +49,6 @@ func initialize(configuration : CardConfiguration, status : bool = false) :
 	card_price.text = str(card_configuration.card_price)
 	
 	card_deck_status = status
-	card_status_label.text = "NOT USED" if card_deck_status == false else "ACTIVE"
-	check_edit_button_availability()
 	
 	#initialize card object ui
 	card_object_ui.initialize(card_configuration)
@@ -61,7 +59,7 @@ func _on_add_button_pressed() -> void:
 	add_pressed.emit(self)
 
 func _on_remove_button_pressed() -> void:
-	sell_pressed.emit(self)
+	remove_pressed.emit(self)
 
 func _on_buy_button_pressed() -> void:
 	buy_pressed.emit(self)
@@ -81,7 +79,9 @@ func change_to_edit_view():
 	hide_all_buttons()
 	current_view_type = TYPE.EDIT
 	
-	card_status_label.show()
+	card_status_label.text = "NOT USED" if card_deck_status == false else "ACTIVE"
+	
+	check_edit_button_availability()
 	add_button.show()
 	remove_button.show()
 
@@ -89,7 +89,8 @@ func change_to_store_view():
 	hide_all_buttons()
 	current_view_type = TYPE.STORE
 	
-	card_status_label.hide()
+	card_status_label.text = "NOT OWNED" if card_deck_status == false else "OWNED"
+	
 	buy_button.show()
 	sell_button.show()
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ryrd254lqdks"]
+
+[ext_resource type="Script" path="res://Script/notification_manager.gd" id="1_lkt80"]
+[ext_resource type="PackedScene" uid="uid://be6ihuhthcc27" path="res://Component/UI/Notification/base_notification.tscn" id="2_6gd2v"]
+
+[node name="NotificationManager" type="Node"]
+script = ExtResource("1_lkt80")
+base_notification_prefab = ExtResource("2_6gd2v")
