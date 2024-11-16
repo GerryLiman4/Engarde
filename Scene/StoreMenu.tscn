@@ -1,15 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhbpdjlgrimbm"]
+[gd_scene load_steps=5 format=3 uid="uid://bnekd11hwsxdg"]
 
 [ext_resource type="PackedScene" uid="uid://int4b1ukuhhm" path="res://Component/UI/Button/general_button.tscn" id="1_lhquh"]
 [ext_resource type="PackedScene" uid="uid://d08h27s0agmay" path="res://Component/UI/card_bullet_ui.tscn" id="3_vrofc"]
+[ext_resource type="AudioStream" uid="uid://dnk5hd3dqati0" path="res://Assets/Sounds/menu-selection-102220.mp3" id="4_sn7vb"]
 
-[node name="StoreMenu" type="Control"]
+[sub_resource type="GDScript" id="GDScript_pxphh"]
+script/source = "extends GeneralPopupMenu
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="StoreMenu" type="Control" node_paths=PackedStringArray("audio_stream_player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_pxphh")
+audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="MainUI" type="CanvasLayer" parent="."]
 layer = 15
@@ -198,3 +214,7 @@ grow_vertical = 2
 text = "EMPTY"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sn7vb")
+bus = &"SFX"

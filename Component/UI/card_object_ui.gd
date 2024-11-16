@@ -4,13 +4,15 @@ class_name CardObjectUI
 
 @export var card_model : TextureRect 
 @export var audio_stream_player : AudioStreamPlayer
+var card_configuration : CardConfiguration
 
 signal selected(CardObjectUI)
 
 func initialize(configuration : CardConfiguration):
+	card_configuration = configuration
 	card_model.texture = configuration.card_image
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.is_action_pressed("click") :
 		audio_stream_player.play()
-		selected.emit()
+		selected.emit(self)

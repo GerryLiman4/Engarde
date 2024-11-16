@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Component/UI/card_bullet_ui.gd" id="1_wt07s"]
 [ext_resource type="PackedScene" uid="uid://int4b1ukuhhm" path="res://Component/UI/Button/general_button.tscn" id="2_082pl"]
 
-[node name="CardBulletUI" type="Control" node_paths=PackedStringArray("add_button", "remove_button", "buy_button", "sell_button", "card_name", "card_description", "card_price")]
+[node name="CardBulletUI" type="Control" node_paths=PackedStringArray("button_options", "add_button", "remove_button", "buy_button", "sell_button", "card_object_ui", "card_name", "card_description", "card_price", "card_status_label")]
 custom_minimum_size = Vector2(310, 160)
 layout_mode = 3
 anchors_preset = 8
@@ -19,13 +19,16 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wt07s")
-add_button = NodePath("MarginContainer/HBoxContainer/EditOptions/AddButton")
-remove_button = NodePath("MarginContainer/HBoxContainer/EditOptions/RemoveButton")
-buy_button = NodePath("MarginContainer/HBoxContainer/EditOptions/BuyButton")
-sell_button = NodePath("MarginContainer/HBoxContainer/EditOptions/SellButton")
+button_options = NodePath("MarginContainer/HBoxContainer/Options")
+add_button = NodePath("MarginContainer/HBoxContainer/Options/AddButton")
+remove_button = NodePath("MarginContainer/HBoxContainer/Options/RemoveButton")
+buy_button = NodePath("MarginContainer/HBoxContainer/Options/BuyButton")
+sell_button = NodePath("MarginContainer/HBoxContainer/Options/SellButton")
+card_object_ui = NodePath("MarginContainer/HBoxContainer/CardObjectUI")
 card_name = NodePath("MarginContainer/HBoxContainer/CardDescription/CardName")
 card_description = NodePath("MarginContainer/HBoxContainer/CardDescription/CardDescription")
 card_price = NodePath("MarginContainer/HBoxContainer/CardDescription/CardPrice")
+card_status_label = NodePath("MarginContainer/HBoxContainer/CardDescription/CardStatus")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -64,32 +67,38 @@ text = "GTA MC"
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="CardStatus" type="Label" parent="MarginContainer/HBoxContainer/CardDescription"]
+layout_mode = 2
+text = "ACTIVE"
+
 [node name="CardPrice" type="Label" parent="MarginContainer/HBoxContainer/CardDescription"]
 layout_mode = 2
 text = "9999"
 
-[node name="EditOptions" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Options" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="AddButton" parent="MarginContainer/HBoxContainer/EditOptions" instance=ExtResource("2_082pl")]
+[node name="AddButton" parent="MarginContainer/HBoxContainer/Options" instance=ExtResource("2_082pl")]
 layout_mode = 2
 text = "Add
 "
 
-[node name="RemoveButton" parent="MarginContainer/HBoxContainer/EditOptions" instance=ExtResource("2_082pl")]
+[node name="RemoveButton" parent="MarginContainer/HBoxContainer/Options" instance=ExtResource("2_082pl")]
 layout_mode = 2
-disabled = true
 text = "Remove
 "
 
-[node name="BuyButton" parent="MarginContainer/HBoxContainer/EditOptions" instance=ExtResource("2_082pl")]
+[node name="BuyButton" parent="MarginContainer/HBoxContainer/Options" instance=ExtResource("2_082pl")]
 layout_mode = 2
-disabled = true
 text = "Buy"
 
-[node name="SellButton" parent="MarginContainer/HBoxContainer/EditOptions" instance=ExtResource("2_082pl")]
+[node name="SellButton" parent="MarginContainer/HBoxContainer/Options" instance=ExtResource("2_082pl")]
 layout_mode = 2
-disabled = true
 text = "Sell
 "
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Options/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Options/RemoveButton" to="." method="_on_remove_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Options/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Options/SellButton" to="." method="_on_sell_button_pressed"]

@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://yqhdkwqrvald"]
+[gd_scene load_steps=18 format=3 uid="uid://yqhdkwqrvald"]
 
 [ext_resource type="Script" path="res://Script/game_manager.gd" id="1_s4fe7"]
+[ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="2_ryquo"]
+[ext_resource type="Resource" uid="uid://kbmyku8qghsr" path="res://Resource/CardConfiguration/cj_configuration.tres" id="3_hmioy"]
+[ext_resource type="Resource" uid="uid://cc5ssf1tm7fw3" path="res://Resource/CardConfiguration/cloud_configuration.tres" id="4_yd4f6"]
+[ext_resource type="Resource" uid="uid://b1374vdvy85d8" path="res://Resource/CardConfiguration/drake_configuration.tres" id="5_y72a0"]
+[ext_resource type="Resource" uid="uid://dcg3ct0jx5fm1" path="res://Resource/CardConfiguration/geralt_configuration.tres" id="6_g5yg2"]
+[ext_resource type="Resource" uid="uid://b4sof5uceaskh" path="res://Resource/CardConfiguration/joel_configuration.tres" id="7_yktom"]
+[ext_resource type="Resource" uid="uid://b37eeb12a2evu" path="res://Resource/CardConfiguration/kratos_configuration.tres" id="8_15042"]
+[ext_resource type="Resource" uid="uid://l0dxgewethuh" path="res://Resource/CardConfiguration/lara_croft_configuration.tres" id="9_mg1sa"]
+[ext_resource type="Resource" uid="uid://cbxj62m1nr275" path="res://Resource/CardConfiguration/link_configuration.tres" id="10_od3fw"]
+[ext_resource type="Resource" uid="uid://dxm53mkf8mbby" path="res://Resource/CardConfiguration/mario_configuration.tres" id="11_ptm6j"]
+[ext_resource type="Resource" uid="uid://b1s1vjxuxevuu" path="res://Resource/CardConfiguration/master_chief_configuration.tres" id="12_7hbtp"]
+[ext_resource type="Resource" uid="uid://bdpyl7o86m63m" path="res://Resource/CardConfiguration/monokuma_configuration.tres" id="13_fodrm"]
+[ext_resource type="Resource" uid="uid://b2w6kfgf5bidj" path="res://Resource/CardConfiguration/samus_configuration.tres" id="14_gmr1r"]
+[ext_resource type="Resource" uid="uid://ddpwj65f360fv" path="res://Resource/CardConfiguration/sheperd_configuration.tres" id="15_fcvhn"]
+[ext_resource type="Resource" uid="uid://d4krf8cd4x3pr" path="res://Resource/CardConfiguration/snake_configuration.tres" id="16_f2vaj"]
+[ext_resource type="Resource" uid="uid://jwdveqmsgucs" path="res://Resource/CardConfiguration/sonic_configuration.tres" id="17_wkr0j"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_s4fe7")
+card_configuration_list = Array[ExtResource("2_ryquo")]([ExtResource("3_hmioy"), ExtResource("4_yd4f6"), ExtResource("5_y72a0"), ExtResource("6_g5yg2"), ExtResource("7_yktom"), ExtResource("8_15042"), ExtResource("9_mg1sa"), ExtResource("10_od3fw"), ExtResource("11_ptm6j"), ExtResource("12_7hbtp"), ExtResource("13_fodrm"), ExtResource("14_gmr1r"), ExtResource("15_fcvhn"), ExtResource("16_f2vaj"), ExtResource("17_wkr0j")])
