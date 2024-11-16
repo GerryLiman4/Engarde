@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardConfiguration" load_steps=3 format=3 uid="uid://b1374vdvy85d8"]
+
+[ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="1_42h1r"]
+[ext_resource type="Texture2D" uid="uid://ckse7dlg0rbm3" path="res://Assets/Cards/Drake.png" id="1_w2d8s"]
+
+[resource]
+script = ExtResource("1_42h1r")
+card_id = 8
+card_name = "Nathan Drake"
+description = "Not that Drake...."
+card_image = ExtResource("1_w2d8s")
+card_price = 150

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardConfiguration" load_steps=3 format=3 uid="uid://l0dxgewethuh"]
+
+[ext_resource type="Texture2D" uid="uid://b0c0v5d657nel" path="res://Assets/Cards/Lara Croft.png" id="1_2ojmj"]
+[ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="1_51eom"]
+
+[resource]
+script = ExtResource("1_51eom")
+card_id = 13
+card_name = "Lara Croft"
+description = "Tomb Raider FMC"
+card_image = ExtResource("1_2ojmj")
+card_price = 340

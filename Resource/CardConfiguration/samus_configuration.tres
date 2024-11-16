@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardConfiguration" load_steps=3 format=3 uid="uid://b2w6kfgf5bidj"]
+
+[ext_resource type="Texture2D" uid="uid://cxux5yyv4qc48" path="res://Assets/Cards/Samus Aran.png" id="1_8qgv3"]
+[ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="1_knr0b"]
+
+[resource]
+script = ExtResource("1_knr0b")
+card_id = 4
+card_name = "Samus"
+description = "Metroid's FMC"
+card_image = ExtResource("1_8qgv3")
+card_price = 400

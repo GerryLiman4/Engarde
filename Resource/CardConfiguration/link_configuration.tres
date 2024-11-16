@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardConfiguration" load_steps=3 format=3 uid="uid://cbxj62m1nr275"]
+
+[ext_resource type="Texture2D" uid="uid://51gp11c7nssj" path="res://Assets/Cards/Link.png" id="1_2blux"]
+[ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="1_hq2no"]
+
+[resource]
+script = ExtResource("1_hq2no")
+card_id = 14
+card_name = "Link"
+description = "Not Zelda"
+card_image = ExtResource("1_2blux")
+card_price = 400

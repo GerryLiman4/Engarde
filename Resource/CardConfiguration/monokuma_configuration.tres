@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardConfiguration" load_steps=3 format=3 uid="uid://bdpyl7o86m63m"]
+
+[ext_resource type="Texture2D" uid="uid://bgh8l2660ue7h" path="res://Assets/Cards/Monokuma.png" id="1_7lhq2"]
+[ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="1_u1xpj"]
+
+[resource]
+script = ExtResource("1_u1xpj")
+card_id = 1
+card_name = "Monokuma"
+description = "Get ready for punishment"
+card_image = ExtResource("1_7lhq2")
+card_price = 180

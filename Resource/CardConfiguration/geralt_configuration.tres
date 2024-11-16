@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardConfiguration" load_steps=3 format=3 uid="uid://dcg3ct0jx5fm1"]
+
+[ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="1_cr34p"]
+[ext_resource type="Texture2D" uid="uid://cjw8drlwxlcjy" path="res://Assets/Cards/Geralt.png" id="1_rgmoc"]
+
+[resource]
+script = ExtResource("1_cr34p")
+card_id = 10
+card_name = "Geralt"
+description = "Witcher's MC"
+card_image = ExtResource("1_rgmoc")
+card_price = 500

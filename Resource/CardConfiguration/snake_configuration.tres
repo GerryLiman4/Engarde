@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardConfiguration" load_steps=3 format=3 uid="uid://d4krf8cd4x3pr"]
+
+[ext_resource type="Texture2D" uid="uid://dey0oi3l2exp4" path="res://Assets/Cards/Solid Snake.png" id="1_g4idb"]
+[ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="1_qyvov"]
+
+[resource]
+script = ExtResource("1_qyvov")
+card_id = 7
+card_name = "Solid Snake"
+description = "Metal gear's MC"
+card_image = ExtResource("1_g4idb")
+card_price = 60

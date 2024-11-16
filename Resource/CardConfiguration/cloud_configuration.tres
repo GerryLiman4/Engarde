@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardConfiguration" load_steps=3 format=3 uid="uid://cc5ssf1tm7fw3"]
+
+[ext_resource type="Script" path="res://Script/Configuration/card_configuration.gd" id="1_2s2p0"]
+[ext_resource type="Texture2D" uid="uid://v3v8gxstt3bp" path="res://Assets/Cards/Cloud Strife.png" id="1_o1r3m"]
+
+[resource]
+script = ExtResource("1_2s2p0")
+card_id = 11
+card_name = "Cloud Strife"
+description = "Final Fantasy 7 MC"
+card_image = ExtResource("1_o1r3m")
+card_price = 300

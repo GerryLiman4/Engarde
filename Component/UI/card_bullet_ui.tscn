@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://d08h27s0agmay"]
+
+[ext_resource type="PackedScene" uid="uid://bijoh54gk5q0q" path="res://Component/UI/card_object_ui.tscn" id="1_de4km"]
+[ext_resource type="Script" path="res://Component/UI/card_bullet_ui.gd" id="1_wt07s"]
+[ext_resource type="PackedScene" uid="uid://int4b1ukuhhm" path="res://Component/UI/Button/general_button.tscn" id="2_082pl"]
+
+[node name="CardBulletUI" type="Control" node_paths=PackedStringArray("add_button", "remove_button", "buy_button", "sell_button", "card_name", "card_description", "card_price")]
+custom_minimum_size = Vector2(310, 160)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -80.0
+offset_right = 155.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wt07s")
+add_button = NodePath("MarginContainer/HBoxContainer/EditOptions/AddButton")
+remove_button = NodePath("MarginContainer/HBoxContainer/EditOptions/RemoveButton")
+buy_button = NodePath("MarginContainer/HBoxContainer/EditOptions/BuyButton")
+sell_button = NodePath("MarginContainer/HBoxContainer/EditOptions/SellButton")
+card_name = NodePath("MarginContainer/HBoxContainer/CardDescription/CardName")
+card_description = NodePath("MarginContainer/HBoxContainer/CardDescription/CardDescription")
+card_price = NodePath("MarginContainer/HBoxContainer/CardDescription/CardPrice")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CardObjectUI" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_de4km")]
+layout_mode = 2
+
+[node name="CardDescription" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 10
+
+[node name="CardName" type="Label" parent="MarginContainer/HBoxContainer/CardDescription"]
+layout_mode = 2
+text = "Carl Johnson"
+
+[node name="CardDescription" type="Label" parent="MarginContainer/HBoxContainer/CardDescription"]
+layout_mode = 2
+text = "GTA MC"
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/CardDescription"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CardPrice" type="Label" parent="MarginContainer/HBoxContainer/CardDescription"]
+layout_mode = 2
+text = "9999"
+
+[node name="EditOptions" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AddButton" parent="MarginContainer/HBoxContainer/EditOptions" instance=ExtResource("2_082pl")]
+layout_mode = 2
+text = "Add
+"
+
+[node name="RemoveButton" parent="MarginContainer/HBoxContainer/EditOptions" instance=ExtResource("2_082pl")]
+layout_mode = 2
+disabled = true
+text = "Remove
+"
+
+[node name="BuyButton" parent="MarginContainer/HBoxContainer/EditOptions" instance=ExtResource("2_082pl")]
+layout_mode = 2
+disabled = true
+text = "Buy"
+
+[node name="SellButton" parent="MarginContainer/HBoxContainer/EditOptions" instance=ExtResource("2_082pl")]
+layout_mode = 2
+disabled = true
+text = "Sell
+"

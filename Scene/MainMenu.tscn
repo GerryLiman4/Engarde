@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://b42y4obmmces8"]
+
+[ext_resource type="Script" path="res://Scene/main_menu.gd" id="1_nm1mu"]
+[ext_resource type="PackedScene" uid="uid://int4b1ukuhhm" path="res://Component/UI/Button/general_button.tscn" id="1_oyb88"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_nm1mu")
+
+[node name="MainUI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="RichTextLabel" parent="MainUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 48.0
+offset_right = 130.0
+offset_bottom = 118.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center][font_size=45][pulse freq=1.0 color=#ffffff40 ease=-2.0]ENGARDE[/pulse][/font_size][/center]"
+scroll_active = false
+
+[node name="UIPanel" type="VBoxContainer" parent="MainUI"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_right = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Spacer2" type="Control" parent="MainUI/UIPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="StartButton" parent="MainUI/UIPanel" instance=ExtResource("1_oyb88")]
+layout_mode = 2
+disabled = true
+text = " Start Campaign"
+
+[node name="EditButton" parent="MainUI/UIPanel" instance=ExtResource("1_oyb88")]
+layout_mode = 2
+text = "Edit Deck "
+
+[node name="StoreButton" parent="MainUI/UIPanel" instance=ExtResource("1_oyb88")]
+layout_mode = 2
+text = " Store "
+
+[node name="Spacer" type="Control" parent="MainUI/UIPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ExitButton" parent="MainUI/UIPanel" instance=ExtResource("1_oyb88")]
+layout_mode = 2
+text = " Store "
+
+[node name="Spacer3" type="Control" parent="MainUI/UIPanel"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[connection signal="pressed" from="MainUI/UIPanel/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainUI/UIPanel/EditButton" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="MainUI/UIPanel/StoreButton" to="." method="_on_store_button_pressed"]
+[connection signal="pressed" from="MainUI/UIPanel/ExitButton" to="." method="_on_exit_button_pressed"]
