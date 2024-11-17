@@ -39,7 +39,6 @@ size_flags_stretch_ratio = 3.0
 
 [node name="StartButton" parent="MainUI/UIPanel" instance=ExtResource("1_oyb88")]
 layout_mode = 2
-disabled = true
 text = " Start Campaign"
 
 [node name="EditButton" parent="MainUI/UIPanel" instance=ExtResource("1_oyb88")]
@@ -57,6 +56,17 @@ text = " Exit "
 [node name="Spacer3" type="Control" parent="MainUI/UIPanel"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="MainUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 76.0
+grow_vertical = 0
+text = "By RyrExe"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="MainUI/UIPanel/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainUI/UIPanel/EditButton" to="." method="_on_edit_button_pressed"]

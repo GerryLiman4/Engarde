@@ -5,7 +5,7 @@ extends Node
 const scene_list : Dictionary = {
 	"MainMenu" : "res://Scene/MainMenu.tscn",
 	"EditDeck" : "res://Scene/EditDeckMenu.tscn",
-	"Campaign" : "",
+	"Campaign" : "res://Scene/CampaignStage.tscn",
 }
 
 func load_scene_by_id(scene_id:String):

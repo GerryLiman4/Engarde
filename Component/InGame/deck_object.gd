@@ -4,6 +4,7 @@ class_name DeckObject
 
 @export var card_object_prefab : PackedScene
 @export var audio_stream_player : AudioStreamPlayer
+@export var animator : AnimationPlayer
 
 var card_object_list : Array[CardObject] = []
 

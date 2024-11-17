@@ -46,7 +46,6 @@ func remove_card_from_deck(card_id : CardId.Id) :
 #endregion
 
 #region editing collection
-
 func buy_card_to_collection(card_id : CardId.Id, price : int):
 	if current_collection.has(card_id) && current_collection[card_id] == CardId.CardAvailabilityId.OWNED : 
 		var notification : BaseNotification = NotificationManager.spawn_base_notification()
@@ -55,6 +54,8 @@ func buy_card_to_collection(card_id : CardId.Id, price : int):
 	
 	current_money -= price
 	current_collection[card_id] = CardId.CardAvailabilityId.OWNED
+	
+	SignalManager.buy_card_to_deck.emit(card_id)
 
 func sell_card_from_collection(card_id : CardId.Id, price : int) :
 	# validation if there is no key in the collection
@@ -70,6 +71,8 @@ func sell_card_from_collection(card_id : CardId.Id, price : int) :
 	current_collection[card_id] = CardId.CardAvailabilityId.NOT_OWNED
 	
 	# remove in current deck if exist
-	remove_card_from_deck(card_id)
+	if current_deck.has(card_id) : current_deck.erase(card_id)
+	
+	SignalManager.sell_card.emit(card_id)
 
 #endregion
