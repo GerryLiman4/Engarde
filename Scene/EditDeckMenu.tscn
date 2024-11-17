@@ -13,6 +13,5 @@ grow_vertical = 2
 script = ExtResource("1_esqhk")
 
 [node name="EditDeckPopupMenu" parent="." instance=ExtResource("2_jo7rn")]
-layout_mode = 1
 
 [connection signal="exit_popup" from="EditDeckPopupMenu" to="." method="_on_edit_deck_popup_menu_exit_popup"]

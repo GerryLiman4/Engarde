@@ -35,11 +35,13 @@ func reset_deck():
 func add_card_to_deck(card_id : CardId.Id):
 	if current_deck.has(card_id) : return
 	
+	SignalManager.add_card_to_deck.emit(card_id)
 	current_deck.append(card_id)
 
 func remove_card_from_deck(card_id : CardId.Id) :
 	if !current_deck.has(card_id) : return
 	
+	SignalManager.remove_card_from_deck.emit(card_id)
 	current_deck.erase(card_id)
 #endregion
 
